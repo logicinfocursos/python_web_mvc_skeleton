@@ -1,8 +1,10 @@
+# run.py
 from flask import Flask
-from app.controllers.main_controller import MainController
+from app.routes import setup_routes
 
-app = Flask(__name__, template_folder='app/views/templates')
-MainController(app)
+app = Flask(__name__, template_folder='app/views/templates', static_folder='app/static')
+
+setup_routes(app)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -104,3 +104,33 @@ if __name__ == '__main__':
 <pre>http://127.0.0.1:5000/ </pre>
 
 <strong>a sua aplicação estará em execução na porta 5000</strong>
+
+
+## downloads, fontes e documentação
+python: https://docs.python.org/3/
+flask: https://flask.palletsprojects.com/en/3.0.x/
+
+bootstrap: https://getbootstrap.com/docs/5.0/getting-started/introduction/
+bootstrap cdn:
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+## tutorials
+https://www.youtube.com/watch?v=2eN51HrYl9A&list=PL3BqW_m3m6a05ALSBW02qDXmfDKIip2KX&index=7
+
+
+### static folder (project assets)
+por padrão o flask busca esses arquivos na pasta static, para definir o local da pasta static, altere a seguinte instrução no arquivo run.py:
+<pre>app = Flask(__name__, template_folder='app/views/templates', static_folder='app/static')</pre>
+
+se desejar inserir arquivos css/js que estão em app/static para usar em base.html:
+
+~~~ 
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+ <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+~~~
+
+para usar a tag img para apresentar imagens que estão em app/static:
+~~~ 
+<img src="{{ url_for('static', filename='images/logo.png') }}" alt="loogo"> 
+~~~

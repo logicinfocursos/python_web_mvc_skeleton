@@ -1,3 +1,5 @@
+# app/models/main_model.py
 class MainModel:
-    def get_data(self):
-        return "Hello from Model"
+    @staticmethod
+    def get_data():
+        return "Hello, Flask MVC!"
